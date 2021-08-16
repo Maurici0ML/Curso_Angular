@@ -1,1 +1,41 @@
-<p>por-region works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Buscar por region <small>{{ regionActiva | titlecase }}</small> </h3>
+    <hr>
+    <h5>Seleccione la regio</h5>
+    <div class="row">
+        <div class="col">
+            <button *ngFor="let region of regiones"
+            class="btn btn-outline-primary mr-1"
+            [class]="getClaseCSS( region )"
+            (click)="activarRegion( region )"> 
+                {{ region | titlecase}}
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 
+
+PRIMER FORMA DE EVALUAR CLASES (forma basica)
+    [class.btn-primary]="region === regionActiva" 
+
+SEGUNDA FORMA DE EVALUAR CLASES (ngClass)
+    [ngClass]="{
+                'btn-primary': regionActiva === region,
+                'btn-outline-primary': regionActiva !== region
+            }"
+TERCERA FORMA DE EVALUAR CLASES (ternario js)
+    [class]="( region === regionActiva ) ? 'btn btn-primary':'btn btn-outline-primary'"
+
+-->
+
+
+
+
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
