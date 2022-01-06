@@ -1,0 +1,5 @@
+html, body{
+    margin: 10px;
+    background-color: brown;
+    font-family: var( --font-family );
+}
